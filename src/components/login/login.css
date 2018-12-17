@@ -1,0 +1,28 @@
+.loginOut {
+  padding-top: 100px;
+  text-align: center;
+}
+input {
+  outline: none;
+  border: none;
+  width: 100%;
+}
+.inputDiv {
+  border-bottom: 1px solid #8f2e2e;
+  margin-top: 15px;
+  padding: 0 15px;
+}
+.btnDiv {
+  padding: 0 50px;
+  margin-top: 20px;
+}
+.btnDiv > button {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  height: 34px !important;
+  color: #fff;
+  font-size: 22px;
+  background-color: #2ae459;
+}

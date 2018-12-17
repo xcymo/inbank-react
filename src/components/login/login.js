@@ -1,7 +1,6 @@
 import React from 'react';
 import './login.less';
 import axios from 'axios'
-import base from '../../static/base.json';
 
 class Login extends React.Component {
     constructor(props) {
@@ -20,22 +19,24 @@ class Login extends React.Component {
     doLogin() {
         console.log(this.state.account);
         console.log(this.state.password);
-        axios.post(base.domain + "api/v1/user/login", {
+        axios.get("/static/api/v1/user/login" + ".json", {
             country_code: "86",
             account: this.state.account,
             password: this.state.password
         }).then((res) => {
             console.log(res);
-        })
+            if (res.status == 200) {
 
+            }
+        })
     }
     render() {
         return (
-            <div>
+            <div className="loginOut">
                 <div>登录界面</div>
-                <div><input type='number' placeholder='请输入账号' onChange={this.changeHandler.bind(this, 'account')} /></div>
-                <div><input type='password' placeholder='请输入密码' onChange={this.changeHandler.bind(this, 'password')} /></div>
-                <div><button onClick={this.doLogin}>登录</button></div>
+                <div className="inputDiv"><input type='number' placeholder='请输入账号' onChange={this.changeHandler.bind(this, 'account')} /></div>
+                <div className="inputDiv"><input type='password' placeholder='请输入密码' onChange={this.changeHandler.bind(this, 'password')} /></div>
+                <div className="btnDiv"><button onClick={this.doLogin}>登录</button></div>
             </div>
         )
     }
