@@ -1,13 +1,15 @@
 import React from 'react';
 import './login.less';
-import axios from 'axios'
+import axios from 'axios';
+import Navbar from 'components/nav'
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             account: '',
-            password: ''
+            password: '',
+            hasLogin: false
         };
         this.doLogin = this.doLogin.bind(this)
     }
@@ -25,20 +27,24 @@ class Login extends React.Component {
             password: this.state.password
         }).then((res) => {
             console.log(res);
-            if (res.status == 200) {
-
-            }
+            this.setState({
+                hasLogin: true
+            })
         })
     }
     render() {
-        return (
-            <div className="loginOut">
-                <div>登录界面</div>
-                <div className="inputDiv"><input type='number' placeholder='请输入账号' onChange={this.changeHandler.bind(this, 'account')} /></div>
-                <div className="inputDiv"><input type='password' placeholder='请输入密码' onChange={this.changeHandler.bind(this, 'password')} /></div>
-                <div className="btnDiv"><button onClick={this.doLogin}>登录</button></div>
-            </div>
-        )
+        if (!this.state.hasLogin) {
+            return (
+                <div className="loginOut">
+                    <div>登录界面</div>
+                    <div className="inputDiv"><input type='number' placeholder='请输入账号' onChange={this.changeHandler.bind(this, 'account')} /></div>
+                    <div className="inputDiv"><input type='password' placeholder='请输入密码' onChange={this.changeHandler.bind(this, 'password')} /></div>
+                    <div className="btnDiv"><button onClick={this.doLogin}>登录</button></div>
+                </div>
+            )
+        } else {
+            return <Navbar />
+        }
     }
 }
 
