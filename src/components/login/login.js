@@ -1,7 +1,7 @@
 import React from 'react';
 import './login.less';
 import axios from 'axios';
-import Navbar from 'components/nav'
+import Main from 'components/Main'
 
 class Login extends React.Component {
     constructor(props) {
@@ -43,7 +43,7 @@ class Login extends React.Component {
                 </div>
             )
         } else {
-            return <Navbar />
+            return <Main />
         }
     }
 }
