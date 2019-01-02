@@ -20,20 +20,18 @@ class AppComponent extends React.Component {
     }
     render() {
         return (
-            <div>
-                <HashRouter>
-                    <div>
-                        <Navbar />
-                        <Switch>
-                            <Route path="/login" exact component={Login} />
-                            <Route path="/home" exact component={Home} />
-                            <Route path="/asset" exact component={Asset} />
-                            <Route path="/trade" exact component={Trade} />
-                            <Route path="/mine" exact component={Mine} />
-                        </Switch>
-                    </div>
-                </HashRouter>
-            </div>
+            <HashRouter>
+                <div>
+                    <Navbar />
+                    <Switch>
+                        <Route path="/login" exact component={Login} />
+                        <Route path="/home" exact component={Home} />
+                        <Route path="/asset" exact component={Asset} />
+                        <Route path="/trade" exact component={Trade} />
+                        <Route path="/mine" exact component={Mine} />
+                    </Switch>
+                </div>
+            </HashRouter>
         );
     }
 }
