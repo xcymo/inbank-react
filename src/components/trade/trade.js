@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import Header from '../public/header'
 
 class Trade extends Component {
     render() {
         return (
             <div>
-                <div>交易</div>
+                <Header headName="交易" />
             </div>
         )
     }

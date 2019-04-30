@@ -1,8 +1,8 @@
 import React from 'react';
 import './login.less';
 import axios from 'axios';
-import Main from 'components/Main'
-
+// import Main from 'components/Main'
+import { Redirect } from 'react-router'
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -18,21 +18,25 @@ class Login extends React.Component {
         newState[name] = event.target.value;
         this.setState(newState);
     }
-    doLogin() {
-        console.log(this.state.account);
-        console.log(this.state.password);
+    doLogin() {       
         axios.get("/static/api/v1/user/login" + ".json", {
             country_code: "86",
             account: this.state.account,
             password: this.state.password
         }).then((res) => {
             console.log(res);
-            this.setState({
-                hasLogin: true
-            })
+            if(res.data.account==this.state.account&&res.data.password==this.state.password){
+                this.setState({
+                    hasLogin: true
+                })
+                localStorage.hasLogin=this.state.hasLogin;
+                window.location.reload();
+            }else{
+                alert('账号或密码错误');
+            }
         })
     }
-    render() {
+    render() {        
         if (!this.state.hasLogin) {
             return (
                 <div className="loginOut">
@@ -43,7 +47,7 @@ class Login extends React.Component {
                 </div>
             )
         } else {
-            return <Main />
+            return (<Redirect to="/main" />)
         }
     }
 }

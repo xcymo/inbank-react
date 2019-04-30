@@ -24,11 +24,10 @@ class AppComponent extends React.Component {
                 <div>
                     <Navbar />
                     <Switch>
-                        <Route path="/login" exact component={Login} />
-                        <Route path="/home" exact component={Home} />
-                        <Route path="/asset" exact component={Asset} />
-                        <Route path="/trade" exact component={Trade} />
-                        <Route path="/mine" exact component={Mine} />
+                        <Route path="/" exact component={Home} />
+                        <Route path="/asset" component={Asset} />
+                        <Route path="/trade" component={Trade} />
+                        <Route path="/mine" component={Mine} />                                      
                     </Switch>
                 </div>
             </HashRouter>

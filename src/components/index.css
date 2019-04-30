@@ -1,0 +1,19 @@
+.bottom {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    background: #000;
+}
+
+.navbar {
+    color: #fff;
+    font-size: 25px;
+    line-height: 45px;
+    text-decoration: none;
+}
+
+.activeNavbar {
+    color: #f00;
+}
